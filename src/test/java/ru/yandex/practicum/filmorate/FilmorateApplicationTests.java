@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
-class FilmValidationTests {
+class FilmorateApplicationTests {
 
 	@Autowired
 	private FilmController filmController;
