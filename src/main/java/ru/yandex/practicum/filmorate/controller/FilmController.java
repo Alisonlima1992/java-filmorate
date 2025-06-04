@@ -49,7 +49,7 @@ public class FilmController {
         return new ArrayList<>(films.values());
     }
 
-    private void validateFilm(Film film) {
+    public void validateFilm(Film film) {
         if (film.getName() == null || film.getName().isEmpty()) {
             log.warn("Название фильма не может быть пустым.");
             throw new ValidationException("Название фильма не может быть пустым.");
@@ -68,4 +68,3 @@ public class FilmController {
         }
     }
 }
-

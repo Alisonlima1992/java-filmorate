@@ -48,7 +48,7 @@ public class UserController {
         return new ArrayList<>(users.values());
     }
 
-    private void validateUser(User user) {
+    public void validateUser(User user) {
         if (user.getEmail() == null || user.getEmail().isEmpty() || !user.getEmail().contains("@")) {
             log.warn("Электронная почта не может быть пустой и должна содержать символ @.");
             throw new ValidationException("Электронная почта не может быть пустой и должна содержать символ @.");
