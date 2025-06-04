@@ -36,13 +36,13 @@ class FilmorateApplicationTests {
 
 	@Test
 	void testFilmValidation_EmptyNameThrowsException() {
-		Film filmWithEmptyName = new Film();
-		filmWithEmptyName.setName("");
-		filmWithEmptyName.setDescription("Test Description");
-		filmWithEmptyName.setReleaseDate(LocalDate.of(2023, 1, 1));
-		filmWithEmptyName.setDuration(120);
+		Film film = new Film();
+		film.setName("");
+		film.setDescription("Test Description");
+		film.setReleaseDate(LocalDate.of(2023, 1, 1));
+		film.setDuration(120);
 
-		assertThrows(ValidationException.class, () -> filmController.validateFilm(filmWithEmptyName), "Пустое имя должно вызывать ValidationException");
+		assertThrows(ValidationException.class, () -> filmController.validateFilm(film), "Пустое имя должно вызывать ValidationException");
 	}
 
 	@Test
