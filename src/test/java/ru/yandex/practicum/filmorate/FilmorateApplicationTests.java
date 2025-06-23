@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import ru.yandex.practicum.filmorate.Exception.NotFoundException;
 import ru.yandex.practicum.filmorate.Exception.ValidationException;
 import ru.yandex.practicum.filmorate.model.Film;
 import ru.yandex.practicum.filmorate.model.User;
@@ -416,5 +417,82 @@ class FilmorateApplicationTests {
 
 		List<Film> popularFilms = filmService.getPopularFilms(10);
 		assertEquals(3, popularFilms.size());
+	}
+
+	@Test
+	void testAddFriend_UserNotFound() {
+		User user1Obj = new User();
+		user1Obj.setEmail("user1@mail.com"); user1Obj.setLogin("user1"); user1Obj.setName("User One"); user1Obj.setBirthday(LocalDate.of(2000, 1, 1));
+		final Long user1Id = userService.create(user1Obj).getId();
+		assertThrows(NotFoundException.class, () -> userService.addFriend(user1Id, 999L));
+	}
+
+	@Test
+	void testAddFriend_DuplicateFriendshipIsIgnored() {
+		User user1 = new User();
+		user1.setEmail("user1@mail.com"); user1.setLogin("user1"); user1.setName("User One"); user1.setBirthday(LocalDate.of(2000, 1, 1));
+		user1 = userService.create(user1);
+		User user2 = new User();
+		user2.setEmail("user2@mail.com"); user2.setLogin("user2"); user2.setName("User Two"); user2.setBirthday(LocalDate.of(2001, 2, 2));
+		user2 = userService.create(user2);
+		userService.addFriend(user1.getId(), user2.getId());
+		userService.addFriend(user1.getId(), user2.getId());
+		assertTrue(userService.getFriends(user1.getId()).contains(user2));
+		assertTrue(userService.getFriends(user2.getId()).contains(user1));
+		assertEquals(1, userService.getFriends(user1.getId()).size(), "User1 should still have only one friend after duplicate attempt");
+	}
+
+	@Test
+	void testDeleteFriend_UserNotFound() {
+		User user1Obj = new User();
+		user1Obj.setEmail("user1@mail.com");
+		user1Obj.setLogin("user1");
+		user1Obj.setName("User One");
+		user1Obj.setBirthday(LocalDate.of(2000, 1, 1));
+		final Long user1Id = userService.create(user1Obj).getId();
+		assertThrows(NotFoundException.class, () -> userService.deleteFriend(999L, user1Id));
+	}
+
+	@Test
+	void testGetFriends_UserNotFound() {
+		assertThrows(NotFoundException.class, () -> userService.getFriends(999L));
+	}
+
+	@Test
+	void testGetCommonFriends_UserNotFound() {
+		User user1Obj = new User();
+		user1Obj.setEmail("user1@mail.com");
+		user1Obj.setLogin("user1");
+		user1Obj.setName("User One");
+		user1Obj.setBirthday(LocalDate.of(2000, 1, 1));
+		final Long user1Id = userService.create(user1Obj).getId();
+		assertThrows(NotFoundException.class, () -> userService.getCommonFriends(999L, user1Id));
+	}
+
+	@Test
+	void testAddLike_FilmNotFound() {
+		User userObj = new User();
+		userObj.setEmail("user@mail.com");
+		userObj.setLogin("user");
+		userObj.setName("User Name");
+		userObj.setBirthday(LocalDate.of(1990, 1, 1));
+		final Long userId = userService.create(userObj).getId();
+		assertThrows(NotFoundException.class, () -> filmService.addLike(999L, userId));
+	}
+
+	@Test
+	void testDeleteLike_FilmNotFound() {
+		User userObj = new User();
+		userObj.setEmail("user@mail.com");
+		userObj.setLogin("user");
+		userObj.setName("User Name");
+		userObj.setBirthday(LocalDate.of(1990, 1, 1));
+		final Long userId = userService.create(userObj).getId();
+		assertThrows(NotFoundException.class, () -> filmService.deleteLike(999L, userId));
+	}
+
+	@Test
+	void testGetFilmById_NotFound() {
+		assertThrows(NotFoundException.class, () -> filmService.getFilmById(999L));
 	}
 }

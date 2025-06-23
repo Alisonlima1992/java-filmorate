@@ -15,15 +15,15 @@ public class InMemoryFilmStorage implements FilmStorage {
 
     @Override
     public Film create(Film film) {
-        film.setId((int) nextId++);
-        films.put(film.getId().longValue(), film);
+        film.setId(nextId++);
+        films.put(film.getId(), film);
         log.info("Фильм успешно добавлен: {}", film);
         return film;
     }
 
     @Override
     public Film update(Film film) {
-        if (!films.containsKey(film.getId().longValue())) {
+        if (!films.containsKey(film.getId())) {
             log.warn("Фильм с id {} не найден для обновления.", film.getId());
             throw new NotFoundException("Фильм с id " + film.getId() + " не найден.");
         }
