@@ -229,11 +229,17 @@ class FilmorateApplicationTests {
 	@Test
 	void testAddFriend() {
 		User user1 = new User();
-		user1.setEmail("user1@mail.com"); user1.setLogin("user1"); user1.setName("User One"); user1.setBirthday(LocalDate.of(2000, 1, 1));
+		user1.setEmail("user1@mail.com");
+		user1.setLogin("user1");
+		user1.setName("User One");
+		user1.setBirthday(LocalDate.of(2000, 1, 1));
 		user1 = userService.create(user1);
 
 		User user2 = new User();
-		user2.setEmail("user2@mail.com"); user2.setLogin("user2"); user2.setName("User Two"); user2.setBirthday(LocalDate.of(2001, 2, 2));
+		user2.setEmail("user2@mail.com");
+		user2.setLogin("user2");
+		user2.setName("User Two");
+		user2.setBirthday(LocalDate.of(2001, 2, 2));
 		user2 = userService.create(user2);
 
 		userService.addFriend(user1.getId(), user2.getId());
@@ -245,11 +251,17 @@ class FilmorateApplicationTests {
 	@Test
 	void testDeleteFriend() {
 		User user1 = new User();
-		user1.setEmail("user1@mail.com"); user1.setLogin("user1"); user1.setName("User One"); user1.setBirthday(LocalDate.of(2000, 1, 1));
+		user1.setEmail("user1@mail.com");
+		user1.setLogin("user1");
+		user1.setName("User One");
+		user1.setBirthday(LocalDate.of(2000, 1, 1));
 		user1 = userService.create(user1);
 
 		User user2 = new User();
-		user2.setEmail("user2@mail.com"); user2.setLogin("user2"); user2.setName("User Two"); user2.setBirthday(LocalDate.of(2001, 2, 2));
+		user2.setEmail("user2@mail.com");
+		user2.setLogin("user2");
+		user2.setName("User Two");
+		user2.setBirthday(LocalDate.of(2001, 2, 2));
 		user2 = userService.create(user2);
 
 		userService.addFriend(user1.getId(), user2.getId());
@@ -262,13 +274,25 @@ class FilmorateApplicationTests {
 
 	@Test
 	void testGetCommonFriends() {
-		User user1 = new User(); user1.setEmail("user1@mail.com"); user1.setLogin("user1"); user1.setName("User One"); user1.setBirthday(LocalDate.of(2000, 1, 1));
+		User user1 = new User();
+		user1.setEmail("user1@mail.com");
+		user1.setLogin("user1");
+		user1.setName("User One");
+		user1.setBirthday(LocalDate.of(2000, 1, 1));
 		user1 = userService.create(user1);
 
-		User user2 = new User(); user2.setEmail("user2@mail.com"); user2.setLogin("user2"); user2.setName("User Two"); user2.setBirthday(LocalDate.of(2001, 2, 2));
+		User user2 = new User();
+		user2.setEmail("user2@mail.com");
+		user2.setLogin("user2");
+		user2.setName("User Two");
+		user2.setBirthday(LocalDate.of(2001, 2, 2));
 		user2 = userService.create(user2);
 
-		User user3 = new User(); user3.setEmail("user3@mail.com"); user3.setLogin("user3"); user3.setName("User Three"); user3.setBirthday(LocalDate.of(2002, 3, 3));
+		User user3 = new User();
+		user3.setEmail("user3@mail.com");
+		user3.setLogin("user3");
+		user3.setName("User Three");
+		user3.setBirthday(LocalDate.of(2002, 3, 3));
 		user3 = userService.create(user3);
 
 		userService.addFriend(user1.getId(), user2.getId());
@@ -282,13 +306,25 @@ class FilmorateApplicationTests {
 
 	@Test
 	void testGetCommonFriends_NoCommonFriends() {
-		User user1 = new User(); user1.setEmail("user1@mail.com"); user1.setLogin("user1"); user1.setName("User One"); user1.setBirthday(LocalDate.of(2000, 1, 1));
+		User user1 = new User();
+		user1.setEmail("user1@mail.com");
+		user1.setLogin("user1");
+		user1.setName("User One");
+		user1.setBirthday(LocalDate.of(2000, 1, 1));
 		user1 = userService.create(user1);
 
-		User user2 = new User(); user2.setEmail("user2@mail.com"); user2.setLogin("user2"); user2.setName("User Two"); user2.setBirthday(LocalDate.of(2001, 2, 2));
+		User user2 = new User();
+		user2.setEmail("user2@mail.com");
+		user2.setLogin("user2");
+		user2.setName("User Two");
+		user2.setBirthday(LocalDate.of(2001, 2, 2));
 		user2 = userService.create(user2);
 
-		User user3 = new User(); user3.setEmail("user3@mail.com"); user3.setLogin("user3"); user3.setName("User Three"); user3.setBirthday(LocalDate.of(2002, 3, 3));
+		User user3 = new User();
+		user3.setEmail("user3@mail.com");
+		user3.setLogin("user3");
+		user3.setName("User Three");
+		user3.setBirthday(LocalDate.of(2002, 3, 3));
 		user3 = userService.create(user3);
 
 		userService.addFriend(user1.getId(), user2.getId());
@@ -299,11 +335,17 @@ class FilmorateApplicationTests {
 	@Test
 	void testAddLike() {
 		Film film = new Film();
-		film.setName("Film Title"); film.setDescription("Desc"); film.setReleaseDate(LocalDate.of(2000, 1, 1)); film.setDuration(90);
+		film.setName("Film Title");
+		film.setDescription("Desc");
+		film.setReleaseDate(LocalDate.of(2000, 1, 1));
+		film.setDuration(90);
 		film = filmService.create(film);
 
 		User user = new User();
-		user.setEmail("user@mail.com"); user.setLogin("user"); user.setName("User Name"); user.setBirthday(LocalDate.of(1990, 1, 1));
+		user.setEmail("user@mail.com");
+		user.setLogin("user");
+		user.setName("User Name");
+		user.setBirthday(LocalDate.of(1990, 1, 1));
 		user = userService.create(user);
 
 		filmService.addLike(film.getId(), user.getId());
@@ -317,11 +359,17 @@ class FilmorateApplicationTests {
 	@Test
 	void testAddLike_DuplicateLikeIgnored() {
 		Film film = new Film();
-		film.setName("Film Title"); film.setDescription("Desc"); film.setReleaseDate(LocalDate.of(2000, 1, 1)); film.setDuration(90);
+		film.setName("Film Title");
+		film.setDescription("Desc");
+		film.setReleaseDate(LocalDate.of(2000, 1, 1));
+		film.setDuration(90);
 		film = filmService.create(film);
 
 		User user = new User();
-		user.setEmail("user@mail.com"); user.setLogin("user"); user.setName("User Name"); user.setBirthday(LocalDate.of(1990, 1, 1));
+		user.setEmail("user@mail.com");
+		user.setLogin("user");
+		user.setName("User Name");
+		user.setBirthday(LocalDate.of(1990, 1, 1));
 		user = userService.create(user);
 
 		filmService.addLike(film.getId(), user.getId());
@@ -334,11 +382,17 @@ class FilmorateApplicationTests {
 	@Test
 	void testDeleteLike() {
 		Film film = new Film();
-		film.setName("Film Title"); film.setDescription("Desc"); film.setReleaseDate(LocalDate.of(2000, 1, 1)); film.setDuration(90);
+		film.setName("Film Title");
+		film.setDescription("Desc");
+		film.setReleaseDate(LocalDate.of(2000, 1, 1));
+		film.setDuration(90);
 		film = filmService.create(film);
 
 		User user = new User();
-		user.setEmail("user@mail.com"); user.setLogin("user"); user.setName("User Name"); user.setBirthday(LocalDate.of(1990, 1, 1));
+		user.setEmail("user@mail.com");
+		user.setLogin("user");
+		user.setName("User Name");
+		user.setBirthday(LocalDate.of(1990, 1, 1));
 		user = userService.create(user);
 
 		filmService.addLike(film.getId(), user.getId());
@@ -351,15 +405,24 @@ class FilmorateApplicationTests {
 	@Test
 	void testDeleteLike_UserDidNotLike() {
 		Film film = new Film();
-		film.setName("Film Title"); film.setDescription("Desc"); film.setReleaseDate(LocalDate.of(2000, 1, 1)); film.setDuration(90);
+		film.setName("Film Title");
+		film.setDescription("Desc");
+		film.setReleaseDate(LocalDate.of(2000, 1, 1));
+		film.setDuration(90);
 		film = filmService.create(film);
 
 		User user = new User();
-		user.setEmail("user@mail.com"); user.setLogin("user"); user.setName("User Name"); user.setBirthday(LocalDate.of(1990, 1, 1));
+		user.setEmail("user@mail.com");
+		user.setLogin("user");
+		user.setName("User Name");
+		user.setBirthday(LocalDate.of(1990, 1, 1));
 		user = userService.create(user);
 
 		User user2 = new User();
-		user2.setEmail("user2@mail.com"); user2.setLogin("user2"); user2.setName("User Two"); user2.setBirthday(LocalDate.of(1990, 1, 1));
+		user2.setEmail("user2@mail.com");
+		user2.setLogin("user2");
+		user2.setName("User Two");
+		user2.setBirthday(LocalDate.of(1990, 1, 1));
 		user2 = userService.create(user2);
 
 		filmService.addLike(film.getId(), user.getId());
@@ -370,22 +433,46 @@ class FilmorateApplicationTests {
 
 	@Test
 	void testGetPopularFilms() {
-		Film film1 = new Film(); film1.setName("Film 1"); film1.setDescription("Desc"); film1.setReleaseDate(LocalDate.of(2000, 1, 1)); film1.setDuration(90);
+		Film film1 = new Film();
+		film1.setName("Film 1");
+		film1.setDescription("Desc");
+		film1.setReleaseDate(LocalDate.of(2000, 1, 1));
+		film1.setDuration(90);
 		film1 = filmService.create(film1);
 
-		Film film2 = new Film(); film2.setName("Film 2"); film2.setDescription("Desc"); film2.setReleaseDate(LocalDate.of(2001, 1, 1)); film2.setDuration(100);
+		Film film2 = new Film();
+		film2.setName("Film 2");
+		film2.setDescription("Desc");
+		film2.setReleaseDate(LocalDate.of(2001, 1, 1));
+		film2.setDuration(100);
 		film2 = filmService.create(film2);
 
-		Film film3 = new Film(); film3.setName("Film 3"); film3.setDescription("Desc"); film3.setReleaseDate(LocalDate.of(2002, 1, 1)); film3.setDuration(110);
+		Film film3 = new Film();
+		film3.setName("Film 3");
+		film3.setDescription("Desc");
+		film3.setReleaseDate(LocalDate.of(2002, 1, 1));
+		film3.setDuration(110);
 		film3 = filmService.create(film3);
 
-		User user1 = new User(); user1.setEmail("u1@mail.com"); user1.setLogin("u1"); user1.setName("U1"); user1.setBirthday(LocalDate.of(1990, 1, 1));
+		User user1 = new User();
+		user1.setEmail("u1@mail.com");
+		user1.setLogin("u1");
+		user1.setName("U1");
+		user1.setBirthday(LocalDate.of(1990, 1, 1));
 		user1 = userService.create(user1);
 
-		User user2 = new User(); user2.setEmail("u2@mail.com"); user2.setLogin("u2"); user2.setName("U2"); user2.setBirthday(LocalDate.of(1991, 1, 1));
+		User user2 = new User();
+		user2.setEmail("u2@mail.com");
+		user2.setLogin("u2");
+		user2.setName("U2");
+		user2.setBirthday(LocalDate.of(1991, 1, 1));
 		user2 = userService.create(user2);
 
-		User user3 = new User(); user3.setEmail("u3@mail.com"); user3.setLogin("u3"); user3.setName("U3"); user3.setBirthday(LocalDate.of(1992, 1, 1));
+		User user3 = new User();
+		user3.setEmail("u3@mail.com");
+		user3.setLogin("u3");
+		user3.setName("U3");
+		user3.setBirthday(LocalDate.of(1992, 1, 1));
 		user3 = userService.create(user3);
 
 		filmService.addLike(film1.getId(), user1.getId());
@@ -408,11 +495,23 @@ class FilmorateApplicationTests {
 
 	@Test
 	void testGetPopularFilms_DefaultCount() {
-		Film film1 = new Film(); film1.setName("Film 1"); film1.setDescription("Desc"); film1.setReleaseDate(LocalDate.of(2000, 1, 1)); film1.setDuration(90);
+		Film film1 = new Film();
+		film1.setName("Film 1");
+		film1.setDescription("Desc");
+		film1.setReleaseDate(LocalDate.of(2000, 1, 1));
+		film1.setDuration(90);
 		film1 = filmService.create(film1);
-		Film film2 = new Film(); film2.setName("Film 2"); film2.setDescription("Desc"); film2.setReleaseDate(LocalDate.of(2001, 1, 1)); film2.setDuration(100);
+		Film film2 = new Film();
+		film2.setName("Film 2");
+		film2.setDescription("Desc");
+		film2.setReleaseDate(LocalDate.of(2001, 1, 1));
+		film2.setDuration(100);
 		film2 = filmService.create(film2);
-		Film film3 = new Film(); film3.setName("Film 3"); film3.setDescription("Desc"); film3.setReleaseDate(LocalDate.of(2002, 1, 1)); film3.setDuration(110);
+		Film film3 = new Film();
+		film3.setName("Film 3");
+		film3.setDescription("Desc");
+		film3.setReleaseDate(LocalDate.of(2002, 1, 1));
+		film3.setDuration(110);
 		film3 = filmService.create(film3);
 
 		List<Film> popularFilms = filmService.getPopularFilms(10);
@@ -422,7 +521,10 @@ class FilmorateApplicationTests {
 	@Test
 	void testAddFriend_UserNotFound() {
 		User user1Obj = new User();
-		user1Obj.setEmail("user1@mail.com"); user1Obj.setLogin("user1"); user1Obj.setName("User One"); user1Obj.setBirthday(LocalDate.of(2000, 1, 1));
+		user1Obj.setEmail("user1@mail.com");
+		user1Obj.setLogin("user1");
+		user1Obj.setName("User One");
+		user1Obj.setBirthday(LocalDate.of(2000, 1, 1));
 		final Long user1Id = userService.create(user1Obj).getId();
 		assertThrows(NotFoundException.class, () -> userService.addFriend(user1Id, 999L));
 	}
@@ -430,10 +532,16 @@ class FilmorateApplicationTests {
 	@Test
 	void testAddFriend_DuplicateFriendshipIsIgnored() {
 		User user1 = new User();
-		user1.setEmail("user1@mail.com"); user1.setLogin("user1"); user1.setName("User One"); user1.setBirthday(LocalDate.of(2000, 1, 1));
+		user1.setEmail("user1@mail.com");
+		user1.setLogin("user1");
+		user1.setName("User One");
+		user1.setBirthday(LocalDate.of(2000, 1, 1));
 		user1 = userService.create(user1);
 		User user2 = new User();
-		user2.setEmail("user2@mail.com"); user2.setLogin("user2"); user2.setName("User Two"); user2.setBirthday(LocalDate.of(2001, 2, 2));
+		user2.setEmail("user2@mail.com");
+		user2.setLogin("user2");
+		user2.setName("User Two");
+		user2.setBirthday(LocalDate.of(2001, 2, 2));
 		user2 = userService.create(user2);
 		userService.addFriend(user1.getId(), user2.getId());
 		userService.addFriend(user1.getId(), user2.getId());
